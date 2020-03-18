@@ -1,5 +1,4 @@
-package com.example.tipovia.config;
-
+package com.example.tipomantenimiento.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -15,7 +14,7 @@ public class SwaggerConfiguration {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.tipovia"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.tipomantenimiento"))
                 .paths(regex("/.*"))
                 .build();
     }

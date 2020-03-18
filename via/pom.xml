@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>tipo-mantenimiento</artifactId>
+	<artifactId>via</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>tipo-mantenimiento</name>
+	<name>via</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -34,9 +34,14 @@
 		</dependency>
 
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -48,25 +53,6 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.6.1</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.6.1</version>
-		</dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
 		</dependency>
 	</dependencies>
 

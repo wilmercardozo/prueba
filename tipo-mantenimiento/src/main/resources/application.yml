@@ -1,0 +1,25 @@
+spring:
+  profiles: default
+  application:
+    name: TIPOSMANTENIMIENTO-CLIENT
+  datasource:
+    url: jdbc:mysql://localhost:3305/tiposmantenimiento?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: root
+    password: POIzxc01
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+server:
+  port: 8099
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8999/eureka/
+    register-with-eureka: true
+
+
+
