@@ -1,6 +1,5 @@
 package com.example.tipovia;
 
-import com.example.tipovia.config.SwaggerConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -13,7 +12,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableEurekaClient
 @EnableJpaRepositories("com.example.tipovia")
 @EnableJpaAuditing
-@Import(SwaggerConfiguration.class)
 @EnableDiscoveryClient
 public class TipoViaApplication {
 
