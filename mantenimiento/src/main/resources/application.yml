@@ -1,1 +1,23 @@
+spring:
+  profiles: default
+  application:
+    name: MANTENIMIENTO-CLIENT
+  datasource:
+    url: jdbc:sqlserver://localhost;database=mantenimiento
+    username: sa
+    password: POIzxc01!
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+server:
+  port: 8070
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8999/eureka/
+    register-with-eureka: true
 
