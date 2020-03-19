@@ -14,6 +14,18 @@ zuul:
       path: /tv/**
       serviceId: tiposvia-client
       stripPrefix: true
+    via-services:
+      path: /v/**
+      serviceId: via-client
+      stripPrefix: true
+    tipomantenimiento-services:
+      path: /tm/**
+      serviceId: tiposmantenimiento-client
+      stripPrefix: true
+    mantenimiento-services:
+      path: /mante/**
+      serviceId: mantenimiento-client
+      stripPrefix: true
 spring:
   application:
     name: zuul-api-gateway-server

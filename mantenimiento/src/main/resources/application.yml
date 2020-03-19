@@ -14,7 +14,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.SQLServerDialect
 server:
-  port: 8070
+  port: 8094
 eureka:
   client:
     serviceUrl:

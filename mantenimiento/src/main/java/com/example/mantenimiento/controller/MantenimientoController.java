@@ -21,20 +21,20 @@ public class MantenimientoController {
     @Autowired
     MantenimientoService mantenimientoService;
 
-    @GetMapping("tiposmantenimiento")
+    @GetMapping("mantenimiento")
     public Iterable<Mantenimiento> getAll(){
         log.info("mantenimiento  - MantenimientoController - getAll ");
         return mantenimientoService.findAll();
     }
 
-    @GetMapping("/tiposmantenimiento/{id}")
+    @GetMapping("/mantenimiento/{id}")
     public Mantenimiento getTiposMantenimientoById(@PathVariable(value = "id") Long id){
         log.info("mantenimiento  - MantenimientoController - getAll ");
         Optional<Mantenimiento> container = mantenimientoService.findMantenimientoById(id);
         return container.isPresent()?container.get():null;
     }
 
-    @PostMapping("/tiposmantenimiento")
+    @PostMapping("/mantenimiento")
     public Mantenimiento addMantenimiento(@Valid @RequestBody String descripcion){
         log.info("mantenimiento  - MantenimientoController - addMantenimiento ");
         Mantenimiento mantenimiento = new Mantenimiento();
@@ -42,7 +42,7 @@ public class MantenimientoController {
         return mantenimientoService.addMantenimiento(mantenimiento);
     }
 
-    @PutMapping("/tiposmantenimiento/{id}")
+    @PutMapping("/mantenimiento/{id}")
     public Mantenimiento updateMantenimiento(@PathVariable(value = "id") Long id,
                                            @Valid @RequestBody String descripcion) {
         log.info("mantenimiento  - MantenimientoController - updateMantenimiento ");
@@ -57,7 +57,7 @@ public class MantenimientoController {
         return mantenimientoService.addMantenimiento(mantenimiento);
     }
 
-    @DeleteMapping("/tiposmantenimiento/{id}")
+    @DeleteMapping("/mantenimiento/{id}")
     public ResponseEntity<ResponseEntity.BodyBuilder> deleteMantenimiento(@PathVariable(value = "id") Long id) {
         log.info("mantenimiento  - MantenimientoController - deleteMantenimiento ");
         Mantenimiento mantenimiento = mantenimientoService.findMantenimientoById(id)
