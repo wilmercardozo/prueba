@@ -32,7 +32,7 @@ public class Via {
 
     private Long tipoVia;
 
-    @JsonIgnore
+    @Transient
     private String descTipoVia;
 
     @Column(nullable = false, updatable = false)

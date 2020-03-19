@@ -1,5 +1,6 @@
 package com.example.mantenimiento.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,11 +29,12 @@ public class Mantenimiento {
     @NotNull
     @NotBlank
     private String descripcion;
-
     private Long idVia;
-
+    @Transient
+    private String descVia;
     private Long idTipoMantenimiento;
-
+    @Transient
+    private String desctipomantenimiento;
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate

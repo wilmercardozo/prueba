@@ -1,7 +1,11 @@
 package com.example.mantenimiento.service;
 
 import com.example.mantenimiento.entity.Mantenimiento;
+import com.example.mantenimiento.entity.TipoMantenimiento;
+import com.example.mantenimiento.entity.Via;
+import com.example.mantenimiento.exception.ResourceNotFoundException;
 import com.example.mantenimiento.repository.MantenimientoRepository;
+import com.example.mantenimiento.webclient.WebClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +21,9 @@ public class MantenimientoService {
     @Autowired
     MantenimientoRepository mantenimientoRepository;
 
+    @Autowired
+    WebClient webClient;
+
     public Iterable<Mantenimiento> findAll() {
         log.info("mantenimiento  - MantenimientoService - findAll ");
         return mantenimientoRepository.findAll();
@@ -27,9 +34,16 @@ public class MantenimientoService {
         return mantenimientoRepository.save(mantenimiento);
     }
 
-    public Optional<Mantenimiento> findMantenimientoById(Long id){
+    public Mantenimiento findMantenimientoById(Long id){
         log.info("mantenimiento  - MantenimientoService - findMantenimientoById ");
-        return mantenimientoRepository.findById(id);
+        Mantenimiento mantenimiento = mantenimientoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("via", "GET", "id" ,id+"" ,"No existe en la base de datos"));
+        Via via = webClient.getVia(mantenimiento.getIdVia());
+        TipoMantenimiento  tipoMantenimiento = webClient.getTipoMantenimiento(mantenimiento.getIdTipoMantenimiento());
+
+        mantenimiento.setDescVia(via.getDescripcion());
+        mantenimiento.setDesctipomantenimiento(tipoMantenimiento.getDescripcion());
+        return mantenimiento;
     }
 
     public void deleteMantenimientoById(Mantenimiento mantenimiento) {
