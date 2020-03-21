@@ -16,8 +16,15 @@ spring:
 server:
   port: 8094
 eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 2
   client:
     serviceUrl:
       defaultZone: http://localhost:8999/eureka/
-    register-with-eureka: true
+    healthcheck:
+      enabled: true
+      lease:
+        duration: 5
+
 

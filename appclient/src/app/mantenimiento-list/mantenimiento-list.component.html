@@ -1,0 +1,29 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Lista de Mantenimientos</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Mantenimiento</th>
+          <th>Via</th>
+          <th>Tipo Mantenimiento</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mantenimiento of mantenimientos | async">
+          <td>{{mantenimiento.descripcion}}</td>
+          <td>{{mantenimiento.idVia}}</td>
+          <td>{{mantenimiento.idTipoMantenimiento}}</td>
+          <td><button (click)="deleteMantenimiento(mantenimiento.id)" class="btn btn-danger">Eliminar</button>
+              <button (click)="updateMantenimiento(mantenimiento.id)" class="btn btn-info" style="margin-left: 10px">Actualizar</button>
+              <button (click)="mantenimientoDetails(mantenimiento.id)" class="btn btn-info" style="margin-left: 10px">Detalles</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
